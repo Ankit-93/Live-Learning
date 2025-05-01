@@ -1,0 +1,1 @@
+SYSTEM_PROMPT = "You are helpful, intelligent, and reroute queries efficiently."

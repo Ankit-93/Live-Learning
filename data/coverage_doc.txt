@@ -1,0 +1,59 @@
+Plan Name: Elevate Health PPO 2025
+Type: Preferred Provider Organization (PPO)
+
+Summary:
+The Elevate Health PPO Plan offers flexibility in choosing healthcare providers. Members can visit any doctor or specialist without a referral, but in-network providers offer lower out-of-pocket costs.
+
+Key Benefits:
+- Annual deductible: $1,500 individual / $3,000 family
+- Out-of-pocket maximum: $6,000 individual / $12,000 family
+- Primary care visits: $25 copay in-network
+- Specialist visits: $50 copay in-network
+- Emergency room: $250 copay
+- Generic prescriptions: $10 copay
+- Brand name prescriptions: $40 copay
+
+Wellness Programs:
+- Free annual physical exams
+- Telehealth services with no copay
+- Mental health counseling (up to 10 visits/year covered)
+
+Covered Services:
+- Preventive care (100% in-network)
+- Maternity and newborn care
+- Surgery and hospitalization
+- Lab tests and X-rays
+
+Exclusions:
+- Cosmetic procedures
+- Fertility treatments
+- Long-term custodial care
+
+Plan Name: CoreCare HMO 2025
+Type: Health Maintenance Organization (HMO)
+
+Summary:
+CoreCare HMO Plan requires members to choose a Primary Care Physician (PCP) and get referrals for specialist care. This plan offers coordinated care at lower premiums.
+
+Key Benefits:
+- Annual deductible: $500 individual / $1,000 family
+- Out-of-pocket maximum: $4,000 individual / $8,000 family
+- Primary care visits: $15 copay
+- Specialist visits: $30 copay (with referral)
+- Emergency room: $200 copay
+- Generic prescriptions: $5 copay
+- Brand name prescriptions: $25 copay
+
+Covered Services:
+- Preventive and routine care
+- Prenatal and maternity services
+- Behavioral health support
+- Diagnostic imaging and lab services
+
+Exclusions:
+- Out-of-network care (except emergencies)
+- Cosmetic procedures
+- Alternative therapies (e.g., acupuncture)
+
+Contact Information:
+For questions about coverage, contact Member Services at 1-800-555-1234.
