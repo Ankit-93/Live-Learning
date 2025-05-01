@@ -1,5 +1,5 @@
 from llama_index.core.tools import FunctionTool
-
+from src.setup.utils import retry
 from src.controller.customlogger import logging
 from src.llm.source_llm import LLMCall
 
@@ -8,6 +8,7 @@ class ChatBotFunctionTools:
     def __init__(self, llm_type="google"):
         self.generator = LLMCall(llm_type).get_llm()
 
+    @retry(max_retries=5, delay=1)
     def machine_learning_concept(self, query):
         logging.info(f"Tool Call: machine_learning_concept('{query}')")
         prompt = (
@@ -17,8 +18,9 @@ class ChatBotFunctionTools:
             "Try to keep answer crisp and compact"
             f"User Query: {query}"
         )
-        return self.generator.complete(prompt=prompt).text.strip()
-    
+        return self.generator.complete(prompt)
+
+    @retry(max_retries=5, delay=1)
     def math_concept(self, query):
         logging.info(f"Tool Call: math_concept('{query}')")
         prompt = (
@@ -27,30 +29,41 @@ class ChatBotFunctionTools:
             "Try to keep answer crisp and compact"
             f"User Query: {query}"
         )
-        return self.generator.complete(prompt=prompt).text.strip()
+        return self.generator.complete(prompt)
 
+    @retry(max_retries=5, delay=1)
     def deep_learning_architecture(self, arch):
         logging.info(f"Tool Call: deep_learning_architecture('{arch}')")
         prompt = f"Explain the {arch} neural network architecture with diagram description"
-        return self.generator.complete(prompt=prompt).text.strip()
+        return self.generator.complete(prompt)
 
+    @retry(max_retries=5, delay=1)
     def visualize_algorithm(self, algo):
         logging.info(f"Tool Call: visualize_algorithm('{algo}')")
         prompt = f"Create visualization code that demonstrates how {algo} works"
-        return self.generator.complete(prompt=prompt).text.strip()
+        return self.generator.complete(prompt)
 
+    @retry(max_retries=5, delay=1)
     def concept_combiner(self, concepts):
         logging.info(f"Tool Call: concept_combiner('{concepts}')")
         prompt = f"Explain the relationship between these concepts: {', '.join(concepts)}"
-        return self.generator.complete(prompt=prompt).text.strip()
+        return self.generator.complete(prompt)
 
+    @retry(max_retries=5, delay=1)
+    def llm_query(self, concepts):
+        logging.info(f"Tool Call: llm_query('{concepts}')")
+        prompt = f"You are an Expert to Answer the following question respond to the best of your knowledge: {', '.join(concepts)}"
+        return self.generator.complete(prompt)
+
+    @retry(max_retries=5, delay=1)
     def get_tools(self):
         return {
             "ml_concept": FunctionTool.from_defaults(fn=self.machine_learning_concept),
             "dl_architecture": FunctionTool.from_defaults(fn=self.deep_learning_architecture),
             "algo_visualizer": FunctionTool.from_defaults(fn=self.visualize_algorithm),
             "concept_combiner": FunctionTool.from_defaults(fn=self.concept_combiner),
-            "math_concept": FunctionTool.from_defaults(fn=self.math_concept)
+            "math_concept": FunctionTool.from_defaults(fn=self.math_concept),
+            "llm_query": FunctionTool.from_defaults(fn=self.llm_query)
         }
 
 

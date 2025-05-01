@@ -36,6 +36,7 @@ class LearningAgent:
         prompt = f"""Analyze this learning query and select appropriate tools also form the condensed query based on
                     previous_questions and Query:
                     For Choosing tool properly analyze the condensed query and then decide. Choose multiple if its necessary based on condensed query
+                    Its mandatory to select to atleast 1 tool
                     Query: {query}
                     Previous Query: {previous_questions}
                     Available Tools: {list(self.tools.keys())}
@@ -47,12 +48,15 @@ class LearningAgent:
                             }}
                             ```
                  Do Not add additional text"""
+        response = self.llm.complete(prompt)
         try:
-            response = self.llm.complete(prompt).text
+            response = response.text
         except:
-            response = self.llm.complete(prompt)
+            response = response
         parsed = self.extract_json_from_markdown(response)
-        return [t.strip() for t in parsed['tool_names'].split(",") if t.strip() in self.tools], parsed["condensed_query"]
+        condensed_query = parsed["condensed_query"]
+        tools = [t.strip() for t in parsed['tool_names'].split(",") if t.strip() in self.tools]
+        return tools if tools else ['llm_query'], condensed_query
 
     def execute_tools(self, tools: List[str], query: str) -> tuple[str, str]:
         tool_results, content_results = [], []
