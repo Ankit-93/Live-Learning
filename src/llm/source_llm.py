@@ -54,8 +54,7 @@ class LLMCall:
 
     def _get_google_llm(self):
         return GoogleGenAI(
-            model="models/gemini-1.5-flash",
-        )
+            model="models/gemini-2.5-flash-lite")
     
     def _get_mistral(self):
         return MistralWrapper()
